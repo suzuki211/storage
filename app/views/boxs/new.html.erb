@@ -1,0 +1,10 @@
+<h1>収納作成ページ</h1>
+<%= form_with model: @box, url: boxs_path(@box.id), local:true do |f| %>
+  <h4>画像</h4>
+  <%= f.attachment_field :image %>
+  <h4>収納スペース名</h4>
+  <%= f.text_field :title %>
+  <h4>説明</h4>
+  <%= f.text_area :explanation %>
+  <%= f.submit '投稿' %>
+<% end %>
