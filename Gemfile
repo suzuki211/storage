@@ -74,3 +74,5 @@ gem 'jquery-rails'
 gem 'font-awesome-sass'
 
 gem 'rails-i18n'
+
+gem 'ransack'

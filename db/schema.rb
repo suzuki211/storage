@@ -10,12 +10,14 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2021_10_02_114347) do
+ActiveRecord::Schema.define(version: 2021_10_05_065510) do
 
-  create_table "boxes", force: :cascade do |t|
+  create_table "items", force: :cascade do |t|
     t.text "title"
     t.string "image_id"
     t.text "explanation"
+    t.string "box"
+    t.string "tag"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

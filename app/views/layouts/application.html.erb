@@ -7,23 +7,44 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+    <link href="https://fonts.googleapis.com/css?family=Kaushan+Script" rel="stylesheet">
   </head>
 
   <body>
-    <% if user_signed_in? %>
-      <li>
-        <%= link_to "ログアウト", destroy_user_session_path, method: :delete %>
-      </li>
-      <li>
-        <%= link_to 'マイページ', user_path(current_user.id) %>
-      </li>
-    <% else %>
-      <li>
-        <%= link_to "新規登録", new_user_registration_path %>
-      </li>
-      <li>
-        <%= link_to "ログイン", new_user_session_path %>
-      </li>
-    <% end %>    <%= yield %>
+    <header>
+      <h1 class="headline">
+        <a href="/">
+          VirtualStorage
+        </a>
+      </h1>
+    </header>
+    <nav>
+      <% if user_signed_in? %>
+        <ul class="nav-list">
+          <li class="nav-list-item">
+            <%= link_to "ItemLists", items_path %>
+          </li>
+          <li class="nav-list-item">
+            <%= link_to "New Items", new_item_path %>
+          </li>
+          <li class="nav-list-item">
+            <%= link_to "Logout", destroy_user_session_path, method: :delete %>
+          </li>
+        　
+        </ul>
+      <% else %>
+        <ul class="nav-list">
+          <li class="nav-list-item">
+            <%= link_to "Sign_in", new_user_registration_path %>
+          </li>
+          <li class="nav-list-item">
+            <%= link_to "Login", new_user_session_path %>
+          </li>
+        </ul>
+      <% end %>
+    </nav>
+    <main>
+      <%= yield %>
+    </main>
   </body>
 </html>

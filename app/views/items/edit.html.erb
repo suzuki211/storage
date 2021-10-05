@@ -1,0 +1,72 @@
+<!--ユーザー側投稿編集ページ-->
+
+<div class='container my-5'>
+  <% if @item.errors.any? %>
+    <%= @item.errors.count %>error prohibited this game from being saved:
+    <% @item.errors.full_messages.each do |message| %>
+      <ul class="error_explanation">
+        <li><%= message %></li>
+      </ul>
+    <% end %>
+  <% end %>
+  <div class='row mb-3'>
+    <div class='col-md-3 offset-md-1'>
+
+      <p id="notice"><%= notice %></p>
+      <h4 class='bg-dark text-white text-center p-3'>編集ページ</h4>
+
+    </div>
+  </div>
+
+  <div class='row'>
+    <div class='col-md-10 offset-md-1'>
+
+      <%= form_with model:@item, url: item_path(@item.id), local:true do |f| %>
+      <table class='table table-borderless'>
+        <!--ゲーム画像-->
+        <tr>
+          <div class='form-group'>
+            <th>画像</th>
+            <td><%= f.attachment_field :image %></td>
+          </div>
+        </tr>
+        <!--ゲームタイトル-->
+        <tr>
+          <div class='form-group'>
+            <th>名前</th>
+              <td><%= f.text_field :title, class: 'col-sm-6 form-control-static name' %></td>
+          </div>
+        </tr>
+        <!--感想-->
+        <tr>
+          <div class='form-group'>
+            <th>収納場所</th>
+              <td><%= f.text_area :box, class: 'col-sm-6 control-label introduction' %></td>
+          </div>
+        </tr>
+        <!--ジャンル-->
+        <tr>
+          <div class='form-group'>
+            <th>タグ</th>
+              <td><%= f.text_area :tag, class: 'col-sm-6 control-label introduction' %></td>
+          </div>
+        </tr>
+        <!--ジャンル-->
+        <tr>
+          <div class='form-group'>
+            <th>説明</th>
+              <td><%= f.text_area :explanation, class: 'col-sm-6 control-label introduction' %></td>
+          </div>
+        </tr>
+        <tr>
+          <div class='form-group'>
+            <th></th>
+              <td><%= f.submit '編集を保存する', class: 'btn btn-primary w-50' %></td>
+          </div>
+        </tr>
+      </table>
+      <% end %>
+    </div>
+  </div>
+
+</div>

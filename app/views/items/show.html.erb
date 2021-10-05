@@ -1,0 +1,54 @@
+<!--ユーザーゲーム詳細ページ-->
+<div class='container my-5'>
+  <% if @item.errors.any? %>
+    <%= @item.errors.count %>error prohibited this game from being saved:
+    <% @item.errors.full_messages.each do |message| %>
+      <ul class="error_explanation">
+        <li><%= message %></li>
+      </ul>
+    <% end %>
+  <% end %>
+  <p id="notice"><%= notice %></p>
+  <!--ゲーム画像-->
+	<div class='col-sm-4'>
+    <%= attachment_image_tag(@item, :image, size: '600x440', fallback: 'no_image.jpg') %>
+  </div>
+  <div class='col-sm-7'>
+    <table class='table table-borderless'>
+      <tbody>
+    	  <!--タイトル-->
+    	  <tr>
+    	    <th style='border-top: none;' class='col-xs-3'>タイトル</th>
+    	  </tr>
+    	  <tr>
+				  <td style='border-top: none;'><%= @item.title %></td>
+				</tr>
+				<!--ジャンル-->
+				<tr>
+				  <th style='border-top: none;' class='col-xs-3'>タグ</th>
+				</tr>
+				<tr>
+				  <td style='border-top: none;'><%= @item.tag %></td>
+				</tr>
+				<!--評価-->
+				<tr>
+				  <th style='border-top: none;' class='col-xs-3'>説明</th>
+				</tr>
+				<tr>
+					<td style='border-top: none;'><%= @item.explanation %></td>
+				</tr>
+    	</tbody>
+    </table>
+    <!--編集,削除機能-->
+		<div style='border-top: none;'>
+			<% if @item.user == current_user %>
+				<%= link_to '編集する', edit_item_path(@item), data: {'turbolinks' => false}, class: 'glyphicon glyphicon-pencil btn btn-success pull-right edit_item_#{@item.id}' %>
+			<% end %>
+		</div>
+    <div style='border-top: none;'>
+      <% if @item.user == current_user %>
+        <%= link_to '削除する', item_path(@item), method: :delete, data: { confirm: '本当に消しますか？' }, class: 'glyphicon glyphicon-pencil btn btn-danger pull-right destroy_item_#{@item.id}'%>
+      <% end %>
+    </div>
+  </div>
+</div>

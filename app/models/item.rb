@@ -1,4 +1,4 @@
-class Box < ApplicationRecord
+class Item < ApplicationRecord
   belongs_to :user
   attachment :image
 end
