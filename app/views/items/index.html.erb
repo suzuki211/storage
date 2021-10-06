@@ -1,19 +1,21 @@
 <p id="notice"><%= notice %></p>
+<!--検索フォーム-->
 <div class="">
   <%= search_form_for @q do |f| %>
-  <!--name_contは、あいまい検索を指定-->
-  <%= f.text_field :title_or_tag_cont %>
+  <!--title,tag,boxであいまい検索を指定-->
+  <%= f.text_field :title_or_tag_or_box_cont, placeholder: 'キーワードを入力' %>
     <%= f.submit "検索" %>
   <% end %>
 </div>
+
 <!--検索結果-->
 <% if @items.present? %>
-  <!--検索結果-->
+  <!--index表示-->
   <div class="list-wrap">
     <% @items.each do |item| %>
       <% if user_signed_in? && current_user.id == item.user_id %>
         <div class="list-box">
-          <%= attachment_image_tag item, :image, :fill, 200, 200, format: 'jpeg' %>
+          <%= attachment_image_tag item, :image, size: '200x200', format: 'jpeg', fallback: 'NO.jpeg' %>
           <div class="list-comment">
             <span class="list-title"><%=link_to item.title, item_path(item.id) %></span>
             <span class="list-tag"><%= item.tag %></span>
@@ -23,6 +25,6 @@
     <% end %>
   </div>
 <% else %>
-  <!--検索がヒットしなかった場合-->
-  <p>検索結果はありません</p>
+  <!--検索がヒットしなかった場合,何も収納していない場合-->
+  <p>収納されていません</p>
 <% end %>

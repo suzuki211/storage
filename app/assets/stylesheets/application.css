@@ -14,6 +14,10 @@
  *= require_self
  */
 
+ body {
+  background-color: aliceblue
+ }
+
 header, h1, nav, .list-comment {
   font-family: 'Kaushan Script', cursive, sans-serif;
 }
@@ -90,16 +94,10 @@ main {
   text-overflow: ellipsis;
 }
 
-.about-item_number {
+.about_number {
     margin-top: 0.58565154vw;
     font-size: 2.7818448vw;
     line-height: 1.1;
     font-weight: bold;
-    color: #101d4d;
-}
-
-.about-item_name {
-    font-size: 16px;
-    line-height: 1.1;
     color: #101d4d;
 }

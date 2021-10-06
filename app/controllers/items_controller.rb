@@ -13,8 +13,13 @@ class ItemsController < ApplicationController
   def create
     @item = Item.new(item_params)
     @item.user_id = current_user.id
-    @item.save
-    redirect_to item_path(@item.id)
+    if @item.save
+      flash[:notice] = '投稿に成功しました.'
+      redirect_to item_path(@item.id)
+    else
+      @items = Item.all
+      render :new
+    end
   end
 
   def index
@@ -39,6 +44,7 @@ class ItemsController < ApplicationController
     @item = Item.find(params[:id])
     @item.destroy
     redirect_to items_path
+    flash[:notice] = '削除に成功しました.'
   end
 
   def update
@@ -47,7 +53,7 @@ class ItemsController < ApplicationController
       redirect_to item_path(@item.id)
       flash[:notice] = '編集に成功しました.'
     else
-      @items = item.all
+      @items = Item.all
       render :edit
     end
   end
