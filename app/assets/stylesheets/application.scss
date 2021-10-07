@@ -13,6 +13,9 @@
  *= require_tree .
  *= require_self
  */
+ @import "bootstrap";
+ @import 'font-awesome-sprockets';
+ @import 'font-awesome';
 
  body {
   background-color: aliceblue
@@ -40,6 +43,9 @@ nav {
   border-top: solid 0.7px #000000;
   border-bottom: solid 0.7px #000000;
 }
+
+
+
 
 .nav-list {
   text-align: center;

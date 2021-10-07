@@ -7,24 +7,34 @@
     <%= f.submit "検索" %>
   <% end %>
 </div>
-
-<!--検索結果-->
-<% if @items.present? %>
-  <!--index表示-->
-  <div class="list-wrap">
-    <% @items.each do |item| %>
-      <% if user_signed_in? && current_user.id == item.user_id %>
-        <div class="list-box">
-          <%= attachment_image_tag item, :image, size: '200x200', format: 'jpeg', fallback: 'NO.jpeg' %>
-          <div class="list-comment">
-            <span class="list-title"><%=link_to item.title, item_path(item.id) %></span>
-            <span class="list-tag"><%= item.tag %></span>
-          </div>
-        </div>
-      <% end %>
-    <% end %>
-  </div>
-<% else %>
-  <!--検索がヒットしなかった場合,何も収納していない場合-->
-  <p>収納されていません</p>
-<% end %>
+<div class='col-md-12'>
+  <!--検索結果-->
+  <% if @items.present? %>
+    <!--index表示-->
+    <table class='table text-center'>
+      <thead class='thead-dark'>
+        <tr>
+          <th class='text-center col-md-3'>画像</th>
+          <th class='text-center col-md-3'>タイトル</th>
+          <th class='text-center col-md-2'>タグ</th>
+          <th class='text-center col-md-3'>収納場所</th>
+        </tr>
+      </thead>
+      <tbody>
+        <% @items.each do |item| %>
+          <% if user_signed_in? && current_user.id == item.user_id %>
+            <tr>
+              <td><%= attachment_image_tag item, :image, size: '100x100', format: 'jpeg', fallback: 'NO.jpeg' %></td>
+              <td><%=link_to item.title, item_path(item.id) %></span></td>
+              <td><%= item.tag %></td>
+              <td><%= item.box %></td>
+            </tr>
+          <% end %>
+        <% end %>
+      </tbody>
+    </table>
+  <% else %>
+    <!--検索がヒットしなかった場合,何も収納していない場合-->
+    <p>収納されていません</p>
+  <% end %>
+</div>
