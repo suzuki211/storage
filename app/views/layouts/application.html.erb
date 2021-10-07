@@ -12,6 +12,7 @@
 
   <body>
     <header>
+      <!--ＴＯＰに戻る,サイト名-->
       <h1 class="headline">
         <a href="/">
           VirtualStorage
@@ -19,6 +20,7 @@
       </h1>
     </header>
     <nav>
+      <!--サインインしている場合-->
       <% if user_signed_in? %>
         <ul class="nav-list">
           <li class="nav-list-item">
@@ -32,6 +34,7 @@
           </li>
         </ul>
       <% else %>
+      <!--サインインしていない場合-->
         <ul class="nav-list">
           <li class="nav-list-item">
             <%= link_to "Sign_in", new_user_registration_path %>

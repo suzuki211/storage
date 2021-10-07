@@ -12,6 +12,7 @@
   <div class='row mb-3'>
     <div class='col-md-3 offset-md-1'>
       <h4 class='bg-dark text-white text-center p-3'>新規収納ページ</h4>
+      <p>※タイトル,収納場所,タグは、必ず入力してください</p>
     </div>
   </div>
 
@@ -54,11 +55,11 @@
               <td><%= f.text_area :explanation, class: 'col-sm-6 control-label introduction' %></td>
           </div>
         </tr>
-        <!--登録ボタン-->
+        <!--追加ボタン-->
         <tr>
           <div class='form-group'>
             <th></th>
-              <td><%= f.submit '新規登録', class: 'btn btn-primary w-50' %></td>
+              <td><%= f.submit '新規追加', class: 'btn btn-primary w-50' %></td>
           </div>
         </tr>
       </table>

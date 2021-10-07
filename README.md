@@ -1,24 +1,24 @@
-# README
+サイト概要
+このサイトは、身の回りの道具を管理する機能とそれらを検索する機能のみのシンプルなサイトです。
+それゆえに、道具の管理しか使うことができない...そんなことはありません。
+食材などといった物を管理することで、外出先でも献立を考えることができる。
+タスクや宿題を管理することで、抜けをなくすことができる
+一人だけではなく、家族全員で管理できる。
+このような用途の他にも様々な用途に「シンプル」ゆえに使うことができます。
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+サイトテーマ
+シンプルゆえに何でも出来るサイト
 
-Things you may want to cover:
+テーマを選んだ理由
+自分がこのテーマを作る際に3つのサイトを考えました。
+一つ目は、タスクや宿題を管理するサイト
+二つ目は、道具や本棚を整理するサイト
+三つ目は、家族で情報を共有するサイト
+これらのサイトの中からサイトを作ろうと考えていた時に、一つのサイトでできるのではないかと思いこのテーマにしました。
 
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+ターゲットユーザ
+・部屋のかたずけをしたい人
+・タスクを管理したい人
+・家族で物の整理する人
+・家の外にいても家の中にあるものを確認できるサイト
+・その他たくさんの人
