@@ -18,7 +18,9 @@
             <div class="list-box">
               <%= attachment_image_tag item, :image, size: '200x200', format: 'jpeg', fallback: 'NO.jpeg' %>
               <div class="list-comment">
+                <!--タイトル-->
                 <span class="list-title"><%=link_to item.title, item_path(item.id) %></span>
+                <!--タグ-->
                 <span class="list-tag"><%= item.tag %></span>
               </div>
             </div>
